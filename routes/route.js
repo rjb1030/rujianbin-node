@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-/* handlebars的请求route   http://127.0.0.1:3000/rujianbin-node/hbs */
+/* handlebars的layout测试   http://127.0.0.1:3000/rujianbin-node/hbs */
 router.get('/hbs', function(req, res, next) {
   res.render('foo',{msg:"哈哈msg"});
 });
@@ -20,6 +20,17 @@ router.get('/hbs-layout1', function(req, res, next) {
 router.get('/hbs-layout2', function(req, res, next) {
   res.render('foo',{layout:"layout2",msg:"哈哈msg"});
 });
+
+/*表单提交测试*/
+router.get('/hbs-login',function(req, res, next){
+  res.render('feature/login',{layout:null});
+});
+router.post('/hbs-home',function(req, res, next){
+  res.render('feature/home',{layout:null});
+});
+
+
+
 
 
 module.exports = router;

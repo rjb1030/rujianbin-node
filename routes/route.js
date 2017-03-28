@@ -12,7 +12,7 @@ router.get('/hbs', function(req, res, next) {
   res.render('foo',{msg:"哈哈msg"});
 });
 router.get('/hbs-nolayout', function(req, res, next) {
-  res.render('foo',{layout:null,msg:"哈哈msg"});
+  res.render('foo',{layout:null,msg:"哈哈msgsd"});
 });
 router.get('/hbs-layout1', function(req, res, next) {
   res.render('foo',{layout:"layout1",msg:"哈哈msg"});

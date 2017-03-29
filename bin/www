@@ -6,5 +6,23 @@
  * #!/usr/bin/env node 表示在linux下可以./启动
  */
 
-require('./server3000')();
-require('./server3001')();
+//由于测试cluster 子进程时。子进程会复制主进程上下文，故防止主进程的代码被子进程重复执行。特加判断。
+var cluster = require('cluster');
+if(cluster.isMaster){
+    console.log('当前模板引擎---->',process.env.viewEngine==null?'jade':process.env.viewEngine);
+    require('./server3000')();
+    require('./server3001')();
+
+    require('../rujianbin_example/buffer');
+    require('../rujianbin_example/child_process');
+    require('../rujianbin_example/cluster');
+    require('../rujianbin_example/mongodb');
+    require('../rujianbin_example/mongoose');
+}else if (cluster.isWorker){
+    //如果是worker进程 则监听消息和发送消息
+    process.on('message', function(m) {
+        console.log('cluster测试  进程通信 ',' [this is a worker process (pid='+process.pid+').  got message]:', m);
+    });
+    process.send({ msg: 'hello i am worker process (pid='+process.pid+')' });
+
+}

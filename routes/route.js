@@ -32,7 +32,7 @@ router.post('/hbs-home',function(req, res, next){
   res.render('feature/home',{layout:null});
 });
 
-/* 文件上传 */
+/* 文件上传 下载*/
 router.post('/hbs-ajax-file-upload',multipartMiddleware,function(req, res, next){
   //multipartMiddleware中间件将上传的临时文件放在xx/temp目录下
   var file = req.files.myfile;   //文件myfile是前端input:file的id属性
@@ -48,6 +48,11 @@ router.post('/hbs-ajax-file-upload',multipartMiddleware,function(req, res, next)
   });
   res.contentType('text/html');//返回text/html格式  否则前端接收的json格式外包了一层html
   res.json({"status":'上传成功'});
+});
+router.get('/hbs-ajax-file-download',function(req, res, next){
+  res.download('./upload/temp.txt','下载文件.txt',function(){
+    console.log('文件被下载成功');
+  })
 });
 
 

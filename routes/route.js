@@ -32,7 +32,7 @@ router.post('/hbs-home',function(req, res, next){
   res.render('feature/home',{layout:null});
 });
 
-/* 文件上传 下载*/
+/* 文件上传 下载   在home页上*/
 router.post('/hbs-ajax-file-upload',multipartMiddleware,function(req, res, next){
   //multipartMiddleware中间件将上传的临时文件放在xx/temp目录下
   var file = req.files.myfile;   //文件myfile是前端input:file的id属性

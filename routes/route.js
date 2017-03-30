@@ -35,7 +35,7 @@ router.post('/hbs-home',function(req, res, next){
 /* 文件上传 */
 router.post('/hbs-ajax-file-upload',multipartMiddleware,function(req, res, next){
   //multipartMiddleware中间件将上传的临时文件放在xx/temp目录下
-  var file = req.files.myfile;   //文件myfile是前端input:file的name属性
+  var file = req.files.myfile;   //文件myfile是前端input:file的id属性
   var params = req.body;  //除文件外的其他参数
   var ori_filename = file.originalFilename; //原始文件名
   var source = fs.createReadStream(file.path);

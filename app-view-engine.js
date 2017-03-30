@@ -12,6 +12,7 @@ function chooseviewEngine(app,path){
         app.set('views', path.join(__dirname, 'views/handlebars'));
         app.set('view engine', 'hbs');
 
+        //测试Partials，方便html复用
         var hbs = require('hbs').create();
         hbs.registerPartials(__dirname + '/views/handlebars/partials');
     }else{

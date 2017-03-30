@@ -1,6 +1,7 @@
 ;(function($){
 
 	$("#fileupload").click(function(){
+		//执行前可以验证格式，大小等
 		$.ajaxFileUpload({
 			url:'hbs-ajax-file-upload',
 			type:'post',

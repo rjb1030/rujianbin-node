@@ -3,8 +3,6 @@
     <meta charset="utf-8">
     <title>AdminPanel</title>
     <link media="all" rel="stylesheet" type="text/css" href="/css/home/all.css" />
-    <script type="text/javascript" src="/js/jquery/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/js/home/home.js"></script>
     <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/css/home/ie.css" /><![endif]-->
 </head>
 <body>
@@ -44,7 +42,8 @@
                             <li class="error">Error : This is an error placed text message.</li>
                             <li class="warning">Warning: This is a warning placed text message.</li>
                             <li class="succes">Succes : This is a succes placed text message.</li>
-                            <li class="succes"><input type="file" name="myfile"/></li>
+                            <li class="succes"><input type="file" id='myfile' name="myfile"/></li>
+                            <input type="button" id="fileupload" value="上传" />
                         </ul>
                     </article>
                 </div>
@@ -184,5 +183,9 @@
         <span class="shadow"></span>
     </aside>
 </div>
+<script type="text/javascript" src="/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/js/ajaxFileUpload/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/js/home/tab-change.js"></script>
+<script type="text/javascript" src="/js/home/home.js"></script>
 </body>
 </html>

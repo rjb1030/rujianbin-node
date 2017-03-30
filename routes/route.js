@@ -29,6 +29,10 @@ router.post('/hbs-home',function(req, res, next){
   res.render('feature/home',{layout:null});
 });
 
+//聊天室
+router.get('/hbs-chat-room',function(req, res, next){
+  res.render('feature/chat-room',{layout:null});
+});
 
 
 
